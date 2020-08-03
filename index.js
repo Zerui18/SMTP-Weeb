@@ -131,8 +131,8 @@ function setup() {
     // Submit button.
     e.btn_submit.onclick = () => {
         // Check.
-        if (malIds.length < 3) {
-            alert(`You need to rate ${10 - malIds.length} series.`)
+        if (malIds.length < 10) {
+            alert(`You need to rate ${10 - malIds.length} more series.`)
             return
         }
         // Send request to server.
