@@ -5,6 +5,7 @@ const e = {
     search_bar: document.getElementById('search_bar'),
     divs_rating: [...document.getElementsByClassName('div_rating')],
     divs_search: [...document.getElementsByClassName('div_search_item')],
+    btn_submit: document.getElementById('btn_submit'),
 }
 
 const startClicked = e.div_search.scrollIntoView.bind(e.div_search, { behavior: 'smooth' })
@@ -19,6 +20,9 @@ const getSearchBarText = () => e.search_bar.value.trim()
 const malIds = []
 const idToImageURL = {}
 const idToRating = {}
+
+const scoreInit = "5"
+const recommenderApi = ""
 
 // Debounce
 let lastSearch = new Date().getTime()
@@ -60,9 +64,12 @@ function addToRatings(malId, image_url) {
     cell.children[0].src = image_url
     cell.style.display = 'table-cell'
     cell.malId = malId
-    // Initial score of 5.
+    // Reset score.
+    const rating = cell.children[1]
+    const [score, slider] = rating.children
+    slider.value = score.innerText = scoreInit
+    // Track.
     malIds.push(malId)
-    idToRating[malId] = 5
     idToImageURL[malId] = image_url
 }
 
@@ -79,6 +86,10 @@ function removeFromRatings(malId) {
         cell.children[0].src = idToImageURL[malId]
         cell.style.display = 'table-cell'
         cell.malId = malId
+        // Reset score.
+        const rating = cell.children[1]
+        const [score, slider] = rating.children
+        slider.value = score.innerText = scoreInit
     }
     showRatingCells(malIds.length)
     console.log(malId, malIds)
@@ -93,6 +104,9 @@ function setup() {
                 performSearch(getSearchBarText())
             }
         }
+        else {
+            showSearchCells(0)
+        }
         // Hard trigger on return.
         if (event.keyCode === 13) {
           lastSearch = new Date().getTime()
@@ -105,4 +119,29 @@ function setup() {
     })
     // Click close to remove cell from ratings.
     e.divs_rating.forEach(e => e.children[2].onclick = () => removeFromRatings(e.malId))
+    // Update score with sliders.
+    e.divs_rating.forEach(div => {
+        const rating = div.children[1]
+        const [score, slider] = rating.children
+        slider.value = score.innerText = scoreInit
+        slider.oninput = () => {
+            score.innerText = idToRating[div.malId] = slider.value
+        }
+    })
+    // Submit button.
+    e.btn_submit.onclick = () => {
+        // Check.
+        if (malIds.length < 3) {
+            alert(`You need to rate ${10 - malIds.length} series.`)
+            return
+        }
+        // Send request to server.
+        let ratingsData = {}
+        for(const id of malIds) {
+            ratingsData[id] = parseInt(idToRating[id] || scoreInit)
+        }
+        ratingsData = encodeURIComponent(btoa(JSON.stringify(ratingsData))) // b64 json, query escaped
+        const requestURL = `${recommenderApi}/recommend?ratings=${ratingsData}`
+        console.log(requestURL)
+    }
 }

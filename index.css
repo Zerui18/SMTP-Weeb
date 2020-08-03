@@ -130,7 +130,6 @@ button {
     position: relative;
     width: 13vw;
     height: calc(13vw * 1.375);
-    margin-bottom: 2.5vw;
     transition: all 0.3s;
     border: var(--border) solid white;
     border-radius: 2vw;
@@ -161,9 +160,15 @@ button {
     position: absolute;
     width: 100%;
     bottom: 0;
-    font-size: 2vw;
+    font-size: 1.7vw;
     text-align: center;
     color: white;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* number of lines to show */
+    -webkit-box-orient: vertical;
 }
 
 /* Submit Button */
