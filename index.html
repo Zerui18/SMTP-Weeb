@@ -7,354 +7,650 @@
 
 </head>
 <body onload="setup()">
-<div id="landing_page">
-    <button id ="btn_start" onclick="startClicked()">行きましょう！<br><div class="arrow-down"></div></button>
-</div>
-<table id="div_ratings">
+<div id="div_main">
+    <div id="landing_page">
+        <button id ="btn_start" onclick="startClicked()">行きましょう！<br><div class="arrow-down"></div></button>
+    </div>
+    <table id="div_ratings">
 
-    <tr>
+        <tr>
 
-        <td>
+            <td>
 
-            <div class="div_rating">
+                <div class="div_rating">
 
-                <img>
-    
-                <div class="div_score">
-                    <div class="txt_score">5</div>
-                    <input type="range" min="0" max="10" value="5" class="slider">
-                </div>
-
-                <div class="close"></div>
-
-            </div>
-            
-    
-        </td>
-
-        <td>
-
-            <div class="div_rating">
-
-                <img>
-    
-                <div class="div_score">
-                    <div class="txt_score">5</div>
-                    <input type="range" min="0" max="10" value="5" class="slider">
-                </div>
-
-                <div class="close"></div>
-
-            </div>
-            
-    
-        </td>
+                    <img>
         
-        <td>
+                    <div class="div_score">
+                        <div class="txt_score">5</div>
+                        <input type="range" min="0" max="10" value="5" class="slider">
+                    </div>
 
-            <div class="div_rating">
+                    <div class="close"></div>
 
-                <img>
-    
-                <div class="div_score">
-                    <div class="txt_score">5</div>
-                    <input type="range" min="0" max="10" value="5" class="slider">
+                </div>
+                
+        
+            </td>
+
+            <td>
+
+                <div class="div_rating">
+
+                    <img>
+        
+                    <div class="div_score">
+                        <div class="txt_score">5</div>
+                        <input type="range" min="0" max="10" value="5" class="slider">
+                    </div>
+
+                    <div class="close"></div>
+
+                </div>
+                
+        
+            </td>
+            
+            <td>
+
+                <div class="div_rating">
+
+                    <img>
+        
+                    <div class="div_score">
+                        <div class="txt_score">5</div>
+                        <input type="range" min="0" max="10" value="5" class="slider">
+                    </div>
+
+                    <div class="close"></div>
+
+                </div>
+                
+        
+            </td>
+
+            <td>
+
+                <div class="div_rating">
+
+                    <img>
+        
+                    <div class="div_score">
+                        <div class="txt_score">5</div>
+                        <input type="range" min="0" max="10" value="5" class="slider">
+                    </div>
+
+                    <div class="close"></div>
+
+                </div>
+                
+        
+            </td>
+
+            <td>
+
+                <div class="div_rating">
+
+                    <img>
+        
+                    <div class="div_score">
+                        <div class="txt_score">5</div>
+                        <input type="range" min="0" max="10" value="5" class="slider">
+                    </div>
+
+                    <div class="close"></div>
+
+                </div>
+                
+        
+            </td>
+
+        </tr>
+
+        <tr>
+
+            <td>
+
+                <div class="div_rating">
+
+                    <img>
+        
+                    <div class="div_score">
+                        <div class="txt_score">5</div>
+                        <input type="range" min="0" max="10" value="5" class="slider">
+                    </div>
+
+                    <div class="close"></div>
+
+                </div>
+                
+        
+            </td>
+
+            <td>
+
+                <div class="div_rating">
+
+                    <img>
+        
+                    <div class="div_score">
+                        <div class="txt_score">5</div>
+                        <input type="range" min="0" max="10" value="5" class="slider">
+                    </div>
+
+                    <div class="close"></div>
+
+                </div>
+                
+        
+            </td>
+
+            <td>
+
+                <div class="div_rating">
+
+                    <img>
+        
+                    <div class="div_score">
+                        <div class="txt_score">5</div>
+                        <input type="range" min="0" max="10" value="5" class="slider">
+                    </div>
+
+                    <div class="close"></div>
+
+                </div>
+                
+        
+            </td>
+
+            <td>
+
+                <div class="div_rating">
+
+                    <img>
+        
+                    <div class="div_score">
+                        <div class="txt_score">5</div>
+                        <input type="range" min="0" max="10" value="5" class="slider">
+                    </div>
+
+                    <div class="close"></div>
+
+                </div>
+                
+        
+            </td>
+
+            <td>
+
+                <div class="div_rating">
+
+                    <img>
+        
+                    <div class="div_score">
+                        <div class="txt_score">5</div>
+                        <input type="range" min="0" max="10" value="5" class="slider">
+                    </div>
+
+                    <div class="close"></div>
+
+                </div>
+                
+        
+            </td>
+
+        </tr>
+
+    </table>
+
+    <div id="search_bar_container">
+        <input id="search_bar" type="text" placeholder="今好きなシーリズを入力してください">
+        <div></div>
+    </div>
+
+    <table id="div_search">
+
+        <tr>
+
+            <td>
+
+                <div class="div_search_item">
+
+                    <img>
+                    <div></div>
+                    <p></p>
+
                 </div>
 
-                <div class="close"></div>
+            </td>
 
-            </div>
-            
-    
-        </td>
+            <td>
 
-        <td>
+                <div class="div_search_item">
 
-            <div class="div_rating">
+                    <img>
+                    <div></div>
+                    <p></p>
 
-                <img>
-    
-                <div class="div_score">
-                    <div class="txt_score">5</div>
-                    <input type="range" min="0" max="10" value="5" class="slider">
                 </div>
 
-                <div class="close"></div>
+            </td><td>
 
-            </div>
-            
-    
-        </td>
+                <div class="div_search_item">
 
-        <td>
+                    <img>
+                    <div></div>
+                    <p></p>
 
-            <div class="div_rating">
-
-                <img>
-    
-                <div class="div_score">
-                    <div class="txt_score">5</div>
-                    <input type="range" min="0" max="10" value="5" class="slider">
                 </div>
 
-                <div class="close"></div>
+            </td><td>
 
-            </div>
-            
-    
-        </td>
+                <div class="div_search_item">
 
-    </tr>
+                    <img>
+                    <div></div>
+                    <p></p>
 
-    <tr>
-
-        <td>
-
-            <div class="div_rating">
-
-                <img>
-    
-                <div class="div_score">
-                    <div class="txt_score">5</div>
-                    <input type="range" min="0" max="10" value="5" class="slider">
                 </div>
 
-                <div class="close"></div>
+            </td><td>
 
-            </div>
-            
-    
-        </td>
+                <div class="div_search_item">
 
-        <td>
+                    <img>
+                    <div></div>
+                    <p></p>
 
-            <div class="div_rating">
-
-                <img>
-    
-                <div class="div_score">
-                    <div class="txt_score">5</div>
-                    <input type="range" min="0" max="10" value="5" class="slider">
                 </div>
 
-                <div class="close"></div>
+            </td>
+            <td>
 
-            </div>
-            
-    
-        </td>
+                <div class="div_search_item">
 
-        <td>
+                    <img>
+                    <div></div>
+                    <p></p>
 
-            <div class="div_rating">
-
-                <img>
-    
-                <div class="div_score">
-                    <div class="txt_score">5</div>
-                    <input type="range" min="0" max="10" value="5" class="slider">
                 </div>
 
-                <div class="close"></div>
+            </td>
 
-            </div>
-            
-    
-        </td>
+        </tr>
 
-        <td>
+        <tr>
 
-            <div class="div_rating">
+            <td>
 
-                <img>
-    
-                <div class="div_score">
-                    <div class="txt_score">5</div>
-                    <input type="range" min="0" max="10" value="5" class="slider">
+                <div class="div_search_item">
+
+                    <img>
+                    <div></div>
+                    <p></p>
+
                 </div>
 
-                <div class="close"></div>
+            </td>
 
-            </div>
-            
-    
-        </td>
+            <td>
 
-        <td>
+                <div class="div_search_item">
 
-            <div class="div_rating">
+                    <img>
+                    <div></div>
+                    <p></p>
 
-                <img>
-    
-                <div class="div_score">
-                    <div class="txt_score">5</div>
-                    <input type="range" min="0" max="10" value="5" class="slider">
                 </div>
 
-                <div class="close"></div>
+            </td><td>
 
-            </div>
-            
-    
-        </td>
+                <div class="div_search_item">
 
-    </tr>
+                    <img>
+                    <div></div>
+                    <p></p>
 
-</table>
+                </div>
 
-<div id="search_bar_container">
-    <input id="search_bar" type="text" placeholder="今好きなシーリズを入力してください">
-    <div></div>
+            </td><td>
+
+                <div class="div_search_item">
+
+                    <img>
+                    <div></div>
+                    <p></p>
+
+                </div>
+
+            </td><td>
+
+                <div class="div_search_item">
+
+                    <img>
+                    <div></div>
+                    <p></p>
+
+                </div>
+
+            </td>
+            <td>
+
+                <div class="div_search_item">
+
+                    <img>
+                    <div></div>
+                    <p></p>
+
+                </div>
+
+            </td>
+
+        </tr>
+
+        <tr>
+
+            <td>
+
+                <div class="div_search_item">
+
+                    <img>
+                    <div></div>
+                    <p></p>
+
+                </div>
+
+            </td>
+
+            <td>
+
+                <div class="div_search_item">
+
+                    <img>
+                    <div></div>
+                    <p></p>
+
+                </div>
+
+            </td><td>
+
+                <div class="div_search_item">
+
+                    <img>
+                    <div></div>
+                    <p></p>
+
+                </div>
+
+            </td><td>
+
+                <div class="div_search_item">
+
+                    <img>
+                    <div></div>
+                    <p></p>
+
+                </div>
+
+            </td><td>
+
+                <div class="div_search_item">
+
+                    <img>
+                    <div></div>
+                    <p></p>
+
+                </div>
+
+            </td>
+            <td>
+
+                <div class="div_search_item">
+
+                    <img>
+                    <div></div>
+                    <p></p>
+
+                </div>
+
+            </td>
+
+        </tr>
+
+        <tr>
+
+            <td>
+
+                <div class="div_search_item">
+
+                    <img>
+                    <div></div>
+                    <p></p>
+
+                </div>
+
+            </td>
+
+            <td>
+
+                <div class="div_search_item">
+
+                    <img>
+                    <div></div>
+                    <p></p>
+
+                </div>
+
+            </td><td>
+
+                <div class="div_search_item">
+
+                    <img>
+                    <div></div>
+                    <p></p>
+
+                </div>
+
+            </td><td>
+
+                <div class="div_search_item">
+
+                    <img>
+                    <div></div>
+                    <p></p>
+
+                </div>
+
+            </td><td>
+
+                <div class="div_search_item">
+
+                    <img>
+                    <div></div>
+                    <p></p>
+
+                </div>
+
+            </td>
+            <td>
+
+                <div class="div_search_item">
+
+                    <img>
+                    <div></div>
+                    <p></p>
+
+                </div>
+
+            </td>
+
+        </tr>
+        
+    </table>
+
+    <button id="btn_submit">
+
+        <img id="icn_submit" src="icn_search.png">
+        <div>新しいシーリズを探そう！</div>
+
+    </button>
 </div>
 
-<table id="div_search">
+<div id="div_overlay" class="hidden">
 
-    <tr>
+    <div id="div_overlay_msg">
 
-        <td>
+        Loading Results, please wait.
 
-            <div class="div_search_item">
+    </div>
 
-                <img>
-                <div></div>
-                <p></p>
+    <div id="btn_close_overlay" class="close"></div>
 
-            </div>
+    <div id="div_recs">
+        
+        <div class="div_rec">
 
-        </td>
+            <img src="https://cdn.myanimelist.net/images/anime/1429/95946.jpg">
 
-        <td>
+            <div>
 
-            <div class="div_search_item">
-
-                <img>
-                <div></div>
-                <p></p>
+                <div class="div_rec_title">Akame Ga Kill!</div>
+                <div class="div_rec_desc">Night Raid is the covert assassination branch of the Revolutionary Army, an uprising assembled to overthrow Prime Minister Honest, whose avarice and greed for power has led him to take advantage of the child emperor's inexperience. Without a strong and benevolent leader, the rest of the nation is left to drown in poverty, strife, and ruin. Though the Night Raid members are all experienced killers, they understand that taking lives is far from commendable and that they will likely face retribution as they mercilessly eliminate anyone who stands in the revolution's way.
+                </div>
 
             </div>
 
-        </td><td>
+        </div>
 
-            <div class="div_search_item">
+        <div class="div_rec">
 
-                <img>
-                <div></div>
-                <p></p>
+            <img src="https://cdn.myanimelist.net/images/anime/1429/95946.jpg">
 
-            </div>
+            <div>
 
-        </td><td>
-
-            <div class="div_search_item">
-
-                <img>
-                <div></div>
-                <p></p>
+                <div class="div_rec_title">Akame Ga Kill!</div>
+                <div class="div_rec_desc">Night Raid is the covert assassination branch of the Revolutionary Army, an uprising assembled to overthrow Prime Minister Honest, whose avarice and greed for power has led him to take advantage of the child emperor's inexperience. Without a strong and benevolent leader, the rest of the nation is left to drown in poverty, strife, and ruin. Though the Night Raid members are all experienced killers, they understand that taking lives is far from commendable and that they will likely face retribution as they mercilessly eliminate anyone who stands in the revolution's way.
+                </div>
 
             </div>
 
-        </td><td>
+        </div>
 
-            <div class="div_search_item">
+        <div class="div_rec">
 
-                <img>
-                <div></div>
-                <p></p>
+            <img src="https://cdn.myanimelist.net/images/anime/1429/95946.jpg">
 
-            </div>
+            <div>
 
-        </td>
-        <td>
-
-            <div class="div_search_item">
-
-                <img>
-                <div></div>
-                <p></p>
+                <div class="div_rec_title">Akame Ga Kill!</div>
+                <div class="div_rec_desc">Night Raid is the covert assassination branch of the Revolutionary Army, an uprising assembled to overthrow Prime Minister Honest, whose avarice and greed for power has led him to take advantage of the child emperor's inexperience. Without a strong and benevolent leader, the rest of the nation is left to drown in poverty, strife, and ruin. Though the Night Raid members are all experienced killers, they understand that taking lives is far from commendable and that they will likely face retribution as they mercilessly eliminate anyone who stands in the revolution's way.
+                </div>
 
             </div>
 
-        </td>
+        </div>
 
-    </tr>
+        <div class="div_rec">
 
-    <tr>
+            <img src="https://cdn.myanimelist.net/images/anime/1429/95946.jpg">
 
-        <td>
+            <div>
 
-            <div class="div_search_item">
-
-                <img>
-                <div></div>
-                <p></p>
+                <div class="div_rec_title">Akame Ga Kill!</div>
+                <div class="div_rec_desc">Night Raid is the covert assassination branch of the Revolutionary Army, an uprising assembled to overthrow Prime Minister Honest, whose avarice and greed for power has led him to take advantage of the child emperor's inexperience. Without a strong and benevolent leader, the rest of the nation is left to drown in poverty, strife, and ruin. Though the Night Raid members are all experienced killers, they understand that taking lives is far from commendable and that they will likely face retribution as they mercilessly eliminate anyone who stands in the revolution's way.
+                </div>
 
             </div>
 
-        </td>
+        </div>
 
-        <td>
+        <div class="div_rec">
 
-            <div class="div_search_item">
+            <img src="https://cdn.myanimelist.net/images/anime/1429/95946.jpg">
 
-                <img>
-                <div></div>
-                <p></p>
+            <div>
 
-            </div>
-
-        </td><td>
-
-            <div class="div_search_item">
-
-                <img>
-                <div></div>
-                <p></p>
+                <div class="div_rec_title">Akame Ga Kill!</div>
+                <div class="div_rec_desc">Night Raid is the covert assassination branch of the Revolutionary Army, an uprising assembled to overthrow Prime Minister Honest, whose avarice and greed for power has led him to take advantage of the child emperor's inexperience. Without a strong and benevolent leader, the rest of the nation is left to drown in poverty, strife, and ruin. Though the Night Raid members are all experienced killers, they understand that taking lives is far from commendable and that they will likely face retribution as they mercilessly eliminate anyone who stands in the revolution's way.
+                </div>
 
             </div>
 
-        </td><td>
+        </div>
 
-            <div class="div_search_item">
+        <div class="div_rec">
 
-                <img>
-                <div></div>
-                <p></p>
+            <img src="https://cdn.myanimelist.net/images/anime/1429/95946.jpg">
 
-            </div>
+            <div>
 
-        </td><td>
-
-            <div class="div_search_item">
-
-                <img>
-                <div></div>
-                <p></p>
+                <div class="div_rec_title">Akame Ga Kill!</div>
+                <div class="div_rec_desc">Night Raid is the covert assassination branch of the Revolutionary Army, an uprising assembled to overthrow Prime Minister Honest, whose avarice and greed for power has led him to take advantage of the child emperor's inexperience. Without a strong and benevolent leader, the rest of the nation is left to drown in poverty, strife, and ruin. Though the Night Raid members are all experienced killers, they understand that taking lives is far from commendable and that they will likely face retribution as they mercilessly eliminate anyone who stands in the revolution's way.
+                </div>
 
             </div>
 
-        </td>
-        <td>
+        </div>
 
-            <div class="div_search_item">
+        <div class="div_rec">
 
-                <img>
-                <div></div>
-                <p></p>
+            <img src="https://cdn.myanimelist.net/images/anime/1429/95946.jpg">
+
+            <div>
+
+                <div class="div_rec_title">Akame Ga Kill!</div>
+                <div class="div_rec_desc">Night Raid is the covert assassination branch of the Revolutionary Army, an uprising assembled to overthrow Prime Minister Honest, whose avarice and greed for power has led him to take advantage of the child emperor's inexperience. Without a strong and benevolent leader, the rest of the nation is left to drown in poverty, strife, and ruin. Though the Night Raid members are all experienced killers, they understand that taking lives is far from commendable and that they will likely face retribution as they mercilessly eliminate anyone who stands in the revolution's way.
+                </div>
 
             </div>
 
-        </td>
+        </div>
 
-    </tr>
-    
-</table>
+        <div class="div_rec">
 
-<button id="btn_submit">
+            <img src="https://cdn.myanimelist.net/images/anime/1429/95946.jpg">
 
-    <img id="icn_submit" src="icn_search.png">
-    <div>新しいシーリズを探そう！</div>
+            <div>
 
-</button>
+                <div class="div_rec_title">Akame Ga Kill!</div>
+                <div class="div_rec_desc">Night Raid is the covert assassination branch of the Revolutionary Army, an uprising assembled to overthrow Prime Minister Honest, whose avarice and greed for power has led him to take advantage of the child emperor's inexperience. Without a strong and benevolent leader, the rest of the nation is left to drown in poverty, strife, and ruin. Though the Night Raid members are all experienced killers, they understand that taking lives is far from commendable and that they will likely face retribution as they mercilessly eliminate anyone who stands in the revolution's way.
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="div_rec">
+
+            <img src="https://cdn.myanimelist.net/images/anime/1429/95946.jpg">
+
+            <div>
+
+                <div class="div_rec_title">Akame Ga Kill!</div>
+                <div class="div_rec_desc">Night Raid is the covert assassination branch of the Revolutionary Army, an uprising assembled to overthrow Prime Minister Honest, whose avarice and greed for power has led him to take advantage of the child emperor's inexperience. Without a strong and benevolent leader, the rest of the nation is left to drown in poverty, strife, and ruin. Though the Night Raid members are all experienced killers, they understand that taking lives is far from commendable and that they will likely face retribution as they mercilessly eliminate anyone who stands in the revolution's way.
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="div_rec">
+
+            <img src="https://cdn.myanimelist.net/images/anime/1429/95946.jpg">
+
+            <div>
+
+                <div class="div_rec_title">Akame Ga Kill!</div>
+                <div class="div_rec_desc">Night Raid is the covert assassination branch of the Revolutionary Army, an uprising assembled to overthrow Prime Minister Honest, whose avarice and greed for power has led him to take advantage of the child emperor's inexperience. Without a strong and benevolent leader, the rest of the nation is left to drown in poverty, strife, and ruin. Though the Night Raid members are all experienced killers, they understand that taking lives is far from commendable and that they will likely face retribution as they mercilessly eliminate anyone who stands in the revolution's way.
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
 
 <script src="helper.js" type="text/javascript"></script>
 <script src="index.js" type="text/javascript"></script>

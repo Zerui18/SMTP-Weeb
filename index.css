@@ -16,9 +16,6 @@
 body {
     width: 100vw !important;
     color: var(--secColor);
-    background-image: url('bg.png');
-    background-repeat: no-repeat;
-    background-size: 100vw;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -26,6 +23,17 @@ body {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+}
+
+#div_main {
+    background-image: url('bg.png');
+    background-repeat: no-repeat;
+    background-size: 100vw;
+}
+
+.blurred {
+    filter: brightness(70%) blur(8px);
+    -webkit-filter: brightness(70%) blur(8px);
 }
 
 button {
@@ -199,6 +207,72 @@ button {
     font-size: 2vw;
     font-weight: 700;
     color: var(--secColor)
+}
+
+#div_overlay {
+    top: 0;
+    bottom:0;
+    left: 0;
+    right: 0;
+    position:fixed;
+    overflow-y:scroll;
+    overflow-x:hidden;
+}
+
+.hidden {
+    display: none;
+}
+
+#div_recs {
+    display: none;
+}
+
+.div_rec {
+    width: 80vw;
+    height: 13vw;
+    margin: 2.5vh auto;
+    background-color: white;
+    border-radius: 1.5vw;
+    display: none;
+}
+
+.div_rec img {
+    height: 11vw;
+    margin: 1vw 1vw 3vw;
+    border-radius: 1vw;
+    flex: calc(11vw / 1.375);
+}
+
+.div_rec>div {
+    padding: 1vw 1vw;
+    flex: calc(100% - 11vw / 1.375);
+}
+
+.div_rec_title {
+    font-size: 2.4rem;
+    font-weight: 700;
+    margin-bottom: 2vw;
+}
+
+.div_rec_desc {
+    font-size: 1.5rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 4; /* number of lines to show */
+    -webkit-box-orient: vertical;
+}
+
+#div_overlay_msg {
+    width: 70vw;
+    margin: auto;
+    margin-top: 35vh;
+    padding: 5vw;
+    font-size: 2.5rem;
+    font-weight: 700;
+    background: white;
+    border-radius: 1.5vw;
+    text-align: center;
 }
 
 /* Elements */

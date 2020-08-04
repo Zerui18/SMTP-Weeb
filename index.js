@@ -1,11 +1,17 @@
 const e = {
     btn_start: document.getElementById('btn_start'),
+    div_main: document.getElementById('div_main'),
     div_ratings: document.getElementById('div_ratings'),
     div_search: document.getElementById('search_bar_container'),
     search_bar: document.getElementById('search_bar'),
     divs_rating: [...document.getElementsByClassName('div_rating')],
     divs_search: [...document.getElementsByClassName('div_search_item')],
     btn_submit: document.getElementById('btn_submit'),
+    div_overlay: document.getElementById('div_overlay'),
+    div_overlay_msg: document.getElementById('div_overlay_msg'),
+    div_recs: document.getElementById('div_recs'),
+    divs_rec: [...document.getElementsByClassName('div_rec')],
+    btn_close_overlay: document.getElementById('btn_close_overlay'),
 }
 
 const startClicked = e.div_search.scrollIntoView.bind(e.div_search, { behavior: 'smooth' })
@@ -16,13 +22,21 @@ const showHideCells = (shown, hidden) => {
 const showRatingCells = (n) => showHideCells(e.divs_rating.slice(0, n), e.divs_rating.slice(n))
 const showSearchCells = (n) => showHideCells(e.divs_search.slice(0, n), e.divs_search.slice(n))
 const getSearchBarText = () => e.search_bar.value.trim()
+const toggleOverlay = () => {
+    e.div_main.classList.toggle('blurred')
+    e.div_overlay.classList.toggle('hidden')
+}
+const toggleLoading = (isLoading) => {
+    e.div_overlay_msg.style.display = isLoading ? '' : 'none'
+    e.div_recs.style.display = isLoading ? 'none' : 'block'
+}
 
 const malIds = []
 const idToImageURL = {}
 const idToRating = {}
 
 const scoreInit = "5"
-const recommenderApi = ""
+const recommenderApi = "http://670d408120e3.ngrok.io"
 
 // Debounce
 let lastSearch = new Date().getTime()
@@ -36,12 +50,14 @@ const updateLastSearch = () => {
 
 async function performSearch(text) {
     const encoded = encodeURIComponent(text)
-    const requestURL = `https://api.jikan.moe/v3/search/manga?q=${encoded}&limit=12&sort=score`
+    const requestURL = `https://api.jikan.moe/v3/search/anime?q=${encoded}&limit=60&sort=score`
     // Fetch.
     const response = await fetch(requestURL)
     let results = await response.json()
     if (results) {
         results = results.results
+        results = results.filter(r => !['R', 'Rx'].includes(r.rated))
+        results = results.slice(0, Math.min(results.length, 24))
         for (let id in results) {
             // Populate search cell.
             const result = results[id]
@@ -86,13 +102,39 @@ function removeFromRatings(malId) {
         cell.children[0].src = idToImageURL[malId]
         cell.style.display = 'table-cell'
         cell.malId = malId
-        // Reset score.
+        // Restore score.
+        const savedScore = idToRating[malId] || scoreInit
         const rating = cell.children[1]
         const [score, slider] = rating.children
-        slider.value = score.innerText = scoreInit
+        slider.value = score.innerText = savedScore
     }
     showRatingCells(malIds.length)
     console.log(malId, malIds)
+}
+
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function populateRecommendations(malIds) {
+    for(const i in malIds) {
+        const malId = malIds[i]
+        const cell = e.divs_rec[i]
+        // Fetch info.
+        const infoURL = `https://api.jikan.moe/v3/anime/${malId}`
+        const response = await fetch(infoURL)
+        const json = await response.json()
+        const thumbnailURL = json.image_url
+        const title = json.title
+        const desc = json.synopsis
+        // Configure cell.
+        cell.children[0].src = thumbnailURL
+        cell.children[1].children[0].innerText = title
+        cell.children[1].children[1].innerText = desc
+        cell.style.display = 'flex'
+        // Rest a bit.
+        await sleep(1000)
+    }
 }
 
 function setup() {
@@ -129,19 +171,44 @@ function setup() {
         }
     })
     // Submit button.
-    e.btn_submit.onclick = () => {
+    e.btn_submit.onclick = async () => {
+        e.divs_rec.forEach( e => e.style.display = 'none' )
+        toggleLoading(true)
+        toggleOverlay()
+
         // Check.
         if (malIds.length < 10) {
             alert(`You need to rate ${10 - malIds.length} more series.`)
             return
         }
         // Send request to server.
-        let ratingsData = {}
+        let ratingsData = []
         for(const id of malIds) {
-            ratingsData[id] = parseInt(idToRating[id] || scoreInit)
+            ratingsData.push([id, parseInt(idToRating[id] || scoreInit)])
         }
-        ratingsData = encodeURIComponent(btoa(JSON.stringify(ratingsData))) // b64 json, query escaped
-        const requestURL = `${recommenderApi}/recommend?ratings=${ratingsData}`
-        console.log(requestURL)
+        console.log(JSON.stringify(ratingsData))
+        
+        const json = JSON.stringify(ratingsData)
+        const requestURL = `${recommenderApi}/api`
+
+        try {
+            const response = await fetch(requestURL, {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                },
+                body: json,
+            })
+    
+            const recommendedMalIds = await response.json()
+            toggleLoading(false)
+            populateRecommendations(recommendedMalIds)
+        }
+        catch(err) {
+            alert(err.message)
+        }
     }
+    // Close overlay.
+    e.btn_close_overlay.onclick = toggleOverlay
 }
