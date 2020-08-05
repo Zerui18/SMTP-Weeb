@@ -36,7 +36,7 @@ const idToImageURL = {}
 const idToRating = {}
 
 const scoreInit = "5"
-const recommenderApi = "http://670d408120e3.ngrok.io"
+const recommenderApi = window.location.hash.slice(1)
 
 // Debounce
 let lastSearch = new Date().getTime()
@@ -190,17 +190,16 @@ function setup() {
         
         const json = JSON.stringify(ratingsData)
         const requestURL = `${recommenderApi}/api`
+        const response = await fetch(requestURL, {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: json,
+        })
 
         try {
-            const response = await fetch(requestURL, {
-                method: 'POST',
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json',
-                },
-                body: json,
-            })
-    
             const recommendedMalIds = await response.json()
             toggleLoading(false)
             populateRecommendations(recommendedMalIds)
