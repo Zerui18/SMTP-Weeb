@@ -13,6 +13,10 @@
     opacity: 1;
 }
 
+html {
+    overflow-x: hidden;
+}
+
 body {
     width: 100vw !important;
     color: var(--secColor);
@@ -59,6 +63,7 @@ button {
     width: 14vw;
     transition: opacity 0.3s;
     display: none;
+    transform: scale(0.8);
 }
 
 .div_rating img {
@@ -71,7 +76,7 @@ button {
 
 .div_rating .div_score {
     position: relative;
-    top: -6vw;
+    top: -3.5vw;
     width: 14vw;
     height: 9vw;
     text-align: center;
@@ -110,12 +115,12 @@ button {
 }
 
 #search_bar {
-    width: 80%;
-    height: 7vw;
+    width: 65%;
+    height: 5vw;
     background-color: var(--priColor);
     color: var(--secColor);
     border-radius: 1.5vw;
-    font-size: 3vw;
+    font-size: 2.5vw;
     font-weight: 700;
     border: none;
     margin: 20px 1vw;
@@ -125,10 +130,10 @@ button {
 #search_bar_container div {
     position: absolute;
     height: 0;
-    width: 70%;
-    border-bottom: 0.8vmin solid white;
+    width: 50%;
+    border-bottom: 0.5vmin solid white;
     left: 2vw;
-    bottom: 3vw;
+    bottom: 1.7vw;
 }
 
 #div_search {
@@ -146,11 +151,11 @@ button {
     background-color: var(--secColor);
     overflow: hidden;
     display: none;
-    scale: 1;
+    transform: scale(0.8);
 }
 
 .div_search_item:hover {
-    scale: 1.1;
+    transform: scale(1.0);
 }
 
 .div_search_item img {
@@ -182,7 +187,6 @@ button {
 }
 
 /* Submit Button */
-
 #btn_submit {
     position: relative;
     width: 34vw;

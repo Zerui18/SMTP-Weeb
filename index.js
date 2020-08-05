@@ -56,7 +56,7 @@ async function performSearch(text) {
     let results = await response.json()
     if (results) {
         results = results.results
-        results = results.filter(r => !['R', 'Rx'].includes(r.rated))
+        results = results.filter(r => !['Rx'].includes(r.rated))
         results = results.slice(0, Math.min(results.length, 24))
         for (let id in results) {
             // Populate search cell.
@@ -172,15 +172,15 @@ function setup() {
     })
     // Submit button.
     e.btn_submit.onclick = async () => {
-        e.divs_rec.forEach( e => e.style.display = 'none' )
-        toggleLoading(true)
-        toggleOverlay()
-
         // Check.
         if (malIds.length < 10) {
             alert(`You need to rate ${10 - malIds.length} more series.`)
             return
         }
+
+        e.divs_rec.forEach( e => e.style.display = 'none' )
+        toggleLoading(true)
+        toggleOverlay()
         // Send request to server.
         let ratingsData = []
         for(const id of malIds) {
@@ -189,7 +189,7 @@ function setup() {
         console.log(JSON.stringify(ratingsData))
         
         const json = JSON.stringify(ratingsData)
-        const requestURL = `${recommenderApi}/api`
+        const requestURL = `https://cors-anywhere.herokuapp.com/${recommenderApi}/api`
         const response = await fetch(requestURL, {
             method: 'POST',
             headers: {
