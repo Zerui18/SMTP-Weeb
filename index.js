@@ -130,7 +130,7 @@ async function populateRecommendations(malIds) {
         // Configure cell.
         cell.children[0].src = thumbnailURL
         cell.children[1].children[0].innerText = title
-        cell.children[1].children[1].innerText = desc
+        cell.children[1].children[1].innerText = ''
         cell.style.display = 'flex'
         // Rest a bit.
         await sleep(1000)
